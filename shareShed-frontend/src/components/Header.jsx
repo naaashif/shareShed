@@ -1,160 +1,42 @@
-import React from 'react'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
-     const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [hamburgButton, setHamburgButton] = useState(false)
+  console.log(hamburgButton);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <img src='/logo.png' height={'40px'} width={'100px'} className='hidden md:flex mr-2'/>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/logo.png"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,  
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            ShareShed
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <img src='/logo.png' className='flex md:hidden mr-2'  height={'40px'} width={'100px'}/>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            ShareShed
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
+    <div className='bg-[#1C352D] flex justify-between items-center' style={{ height: '80px' }} >
+      <div className="flex items-center m-8">
+        <a href='/' className='text-3xl text-white font-semibold'>ShareShed</a>
+      </div>
+      <div className='flex'>
+        <div className='flex flex-col'>
+          <div className='flex md:hidden p-5'>
+            <button onClick={() => setHamburgButton(!hamburgButton)} className='text-white' >
+              {hamburgButton ? <CloseIcon sx={{ fontSize: "40px" }} /> : <MenuIcon sx={{ fontSize: "40px" }} />}
+            </button>
+          </div>
+          {/* Mobile Dropdown Menu */}
+          {hamburgButton && (
+            <div className="absolute top-20 left-0 w-full flex flex-col items-center py-4 gap-4 z-50 shadow-lg md:hidden">
+              <Link to="/products" className='text-[#1C352D] font-bold text-lg' onClick={() => setHamburgButton(false)}>Products</Link>
+              <Link to="/contact" className='text-[#1C352D] font-bold text-lg' onClick={() => setHamburgButton(false)}>Contact Us</Link>
+              <Link to="/login" className='text-[#1C352D] font-bold text-lg' onClick={() => setHamburgButton(false)}>Log In</Link>
+            </div>
+          )}
+        </div>
+        <div className="hidden md:flex text-white items-center gap-3 m-3 text-lg font-semibold">
+          <button className='bg-white text-[#1C352D] rounded px-3 py-1'>Products</button>
+          <button className='bg-white text-[#1C352D] rounded px-3 py-1'>Contact Us</button>
+          <Link className='border rounded-lg px-3 py-1' to={'/login'}>Log In</Link>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Header
