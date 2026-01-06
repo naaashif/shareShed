@@ -1,9 +1,11 @@
 import './App.css'
+
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Preloader from "./components/Preloader"
 import Home from "./users/Home";
 import Pnf from "./components/Pnf";
+import Login from './users/Login';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,6 +22,8 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+
           <Route path="/*" element={<Pnf />} />
         </Routes>
       </div>
