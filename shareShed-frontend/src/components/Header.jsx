@@ -22,7 +22,7 @@ function Header() {
           </div>
           {/* Mobile Dropdown Menu */}
           {hamburgButton && (
-            <div className="absolute top-20 left-0 w-full flex flex-col items-center py-4 gap-4 z-50 shadow-lg md:hidden">
+            <div className="bg-[#F1F0E9]/70  absolute top-20 left-0 w-full flex flex-col items-center py-4 gap-4 z-50 shadow-lg md:hidden">
               <Link to="/products" className='text-[#1C352D] font-bold text-lg' onClick={() => setHamburgButton(false)}>Products</Link>
               <Link to="/contact" className='text-[#1C352D] font-bold text-lg' onClick={() => setHamburgButton(false)}>Contact Us</Link>
               <Link to="/login" className='text-[#1C352D] font-bold text-lg' onClick={() => setHamburgButton(false)}>Log In</Link>
