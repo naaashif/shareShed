@@ -6,6 +6,7 @@ import Preloader from "./components/Preloader"
 import Home from "./users/Home";
 import Pnf from "./components/Pnf";
 import Login from './users/Login';
+import LandingPage from './components/LandingPage';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,8 +22,10 @@ function App() {
       <div className={loading ? "opacity-0" : "animate-[reveal_500ms_ease-out_forwards]"}>
         
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Login insideRegister={true} />} />
+          <Route path='/home' element={<Home/>} />
 
           <Route path="/*" element={<Pnf />} />
         </Routes>
