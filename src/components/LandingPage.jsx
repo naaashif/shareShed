@@ -18,12 +18,12 @@ function LandingPage() {
             minHeight: "90vh",
             backgroundImage: `url(/hero.png)`,
             backgroundSize: "cover",
-            // backgroundPosition:"center",
+            backgroundPosition:"center",
             backgroundAttachment: "fixed",
             backgroundPosition:"top"
           }}>
           <div
-            className="flex flex-col w-full max-w-lg bg-white/35 rounded-xl p-8
+            className="flex flex-col w-96 md:w-full max-w-lg bg-white/35 rounded-xl p-8
                          text-center items-center justify-around backdrop-blur-sm"
           >
             <h1 className=" text-3xl font-bold text-[#1C352D] z-10">
