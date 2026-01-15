@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { Bounce, toast, ToastContainer } from 'react-toastify'
 
 function Login() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Login() {
 
   const handleLogin = () => {
     if (!formData.email || !formData.password) {
-      alert("All fields are required");
+      toast.warning('Fill the Form Completely')
       return;
     }
 
@@ -127,6 +128,19 @@ function Login() {
           </div>
         </div>
       </div>
+            <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+transition={Bounce}
+/>
     </div>
   );
 }

@@ -18,9 +18,8 @@ function LandingPage() {
             minHeight: "90vh",
             backgroundImage: `url(/hero.png)`,
             backgroundSize: "cover",
-            backgroundPosition:"center",
+            backgroundPosition:"left top",
             backgroundAttachment: "fixed",
-            backgroundPosition:"top"
           }}>
           <div
             className="flex flex-col w-96 md:w-full max-w-lg bg-white/35 rounded-xl p-8
@@ -64,7 +63,9 @@ function LandingPage() {
         <h1 className="text-center text-4xl font-bold mt-4">
           Frequently Rented
         </h1>
-        <div className="flex overflow-auto ">
+        {/* Card */}
+        <div className="flex overflow-auto">
+          {/* card duplicate  */}
             <div className="w-64 p-4 border border-gray-300 rounded-lg m-5">
               <img
                 src="/driller2.png"

@@ -57,7 +57,7 @@ function Register() {
               Register as
             </h2>
 
-            {/* ROLE SELECTION */}
+            {/* select use3r or provider */}
             <div className="flex gap-2 mb-10 justify-center">
               <button
                 onClick={() => setFormData({ ...formData, role: "user" })}
@@ -86,7 +86,7 @@ function Register() {
               </div>
             </div>
 
-            {/* FORM */}
+            {/* user details */}
             <input
               name="username"
               value={formData.username}
