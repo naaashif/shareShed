@@ -7,9 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# confirmed
+node_modules 
 dist
 dist-ssr
+.env
 *.local
 
 # Editor directories and files
@@ -22,8 +24,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# we did
-node_modules
-dist
-.env

@@ -103,7 +103,7 @@ function Login() {
             </div>
 
             <div className="text-right mb-4">
-              <Link to={'/*'}  className="text-xs underline">
+              <Link to={'/user/home'}  className="text-xs underline">
                 Forgot Password?
               </Link>
             </div>

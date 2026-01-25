@@ -6,7 +6,7 @@ export default function Preloader() {
 
             {/* Text */}
             <span className=" text-lg font-semibold text-slate-700 animate-pulse ">
-                Loading...
+                ShareShed Loading...
             </span>
         </div>
     );

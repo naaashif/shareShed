@@ -11,6 +11,7 @@ function Register() {
     password: "",
     confirmPassword: "",
     role: "user",
+    company: "",
   });
 
   const handleChange = (e) => {
@@ -57,7 +58,7 @@ function Register() {
               Register as
             </h2>
 
-            {/* select use3r or provider */}
+            {/* select user or provider */}
             <div className="flex gap-2 mb-10 justify-center">
               <button
                 onClick={() => setFormData({ ...formData, role: "user" })}
@@ -68,25 +69,34 @@ function Register() {
                 }`}
               >
                 <div className="">
-                  <p className="flex justify-center items-center"> <FaUser className="me-1 md:me-2 text-md md:text-xl" /> Rent Tools</p>
+                  <p className="flex justify-center items-center">
+                    {" "}
+                    <FaUser className="me-1 md:me-2 text-md md:text-xl" /> Rent
+                    Tools
+                  </p>
                 </div>
               </button>
 
-              <div
+              <button
                 onClick={() => setFormData({ ...formData, role: "provider" })}
                 className={`flex p-4 rounded-full cursor-pointer border text-center ${
                   formData.role === "provider"
                     ? "bg-green-700 border-green-700"
                     : "border-gray-400"
                 }`}
-              >                
-                 <div className="">
-                  <p className="flex justify-center items-center"> <FaTools className="me-1 md:me-2 text-md md:text-xl" /> Provide Tools</p>
+              >
+                <div className="">
+                  <p className="flex justify-center items-center">
+                    {" "}
+                    <FaTools className="me-1 md:me-2 text-md md:text-xl" />{" "}
+                    Provide Tools
+                  </p>
                 </div>
-              </div>
+              </button>
             </div>
 
             {/* user details */}
+           
             <input
               name="username"
               value={formData.username}
@@ -104,6 +114,16 @@ function Register() {
               placeholder="Email"
               className="w-full p-2 rounded-lg mb-4 text-black bg-white"
             />
+            {formData.role === "provider" && (
+              <input
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                type="text"
+                placeholder="Shop name"
+                className="w-full p-2 rounded-lg mb-4 text-black bg-white"
+              />
+            )}
 
             <input
               name="password"

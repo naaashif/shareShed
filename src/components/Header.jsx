@@ -11,7 +11,9 @@ function Header() {
   return (
     <div className='bg-[#1C352D] flex justify-between items-center' style={{ height: '80px' }} >
       <div className="flex items-center m-8">
-        <a href='/' className='text-3xl text-white font-semibold'>ShareShed</a>
+        <a href='/' className='text-3xl text-white font-semibold flex items-center gap-3'>
+        <img height={35} width={35} src="/logo.png" alt="logo" className='' />
+        ShareShed</a>
       </div>
       <div className='flex'>
         <div className='flex flex-col'>
@@ -30,8 +32,8 @@ function Header() {
           )}
         </div>
         <div className="hidden md:flex text-white items-center gap-3 m-3 text-lg font-semibold">
-          <Link to={'/'} className='bg-white text-[#1C352D] rounded px-3 py-1'>Products</Link>
-          <Link to={'/'} className='bg-white text-[#1C352D] rounded px-3 py-1'>Contact Us</Link>
+          <Link to={"/products"} className='bg-white text-[#1C352D] rounded px-3 py-1'>Products</Link>
+          <Link to={'/contact'} className='bg-white text-[#1C352D] rounded px-3 py-1'>Contact Us</Link>
           <Link to={'/login'} className='border rounded-lg px-3 py-1' >Log In</Link>
         </div>
       </div>

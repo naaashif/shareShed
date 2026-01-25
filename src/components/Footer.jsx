@@ -38,21 +38,21 @@ function Footer() {
             <button className='bg-amber-400 px-3 py-1 rounded-r'>Subscribe</button>
           </div>
           <div className="mt-5 text-3xl space-x-2 ms-4">
-            <a href="www.instagram.com"> <InstagramIcon /> </a>
-            <a href="www.instagram.com"> <LinkedInIcon /> </a>
-            <a href="www.instagram.com"> <GitHubIcon /> </a>
-            <a href="www.instagram.com"> <FacebookIcon /> </a>
+            <a href="https://www.instagram.com"> <InstagramIcon /> </a>
+            <a href="https://www.linkedin.com"> <LinkedInIcon /> </a>
+            <a href="https://www.github.com"> <GitHubIcon /> </a>
+            <a href="https://www.facebook.com"> <FacebookIcon /> </a>
           </div>
         </div>
       </div>
-      <div className="flex justify-between m-6 md:flex-row flex-col space-y-4 items-center">
+      <div className="flex justify-between md:flex-row flex-col space-y-4 items-center">
         <div className="ms-5">
           <h1>&copy;2026 ShareShed inc. All rights reserved.</h1>
         </div>
         <div className="text-slate-500 text-sm gap-4 flex md:me-12">
           <a href="">Privacy Policy</a>
-          <a href=''>Terms and Conditions</a>
-          <a href="">Developers</a>
+          <a href="/login">Terms and Conditions</a>
+          <a href="https://www.github.com/nashift">Developers</a>
         </div>
       </div>
     </div>

@@ -18,9 +18,10 @@ function LandingPage() {
             minHeight: "90vh",
             backgroundImage: `url(/hero.png)`,
             backgroundSize: "cover",
-            backgroundPosition:"left top",
+            backgroundPosition: "left top",
             backgroundAttachment: "fixed",
-          }}>
+          }}
+        >
           <div
             className="flex flex-col w-96 md:w-full max-w-lg bg-white/35 rounded-xl p-8
                          text-center items-center justify-around backdrop-blur-sm"
@@ -66,82 +67,85 @@ function LandingPage() {
         {/* Card */}
         <div className="flex overflow-auto">
           {/* card duplicate  */}
-            <div className="w-64 p-4 border border-gray-300 rounded-lg m-5">
-              <img
-                src="/driller2.png"
-                alt="Drill"
-                className="h-40 mx-auto rounded"
-              />
-              <h3 className="text-lg font-semibold text-center mt-4 px-5">
-                Drill Machine
-              </h3>
-              <h3 className="text-md font-semibold text-center flex items-center justify-center">
-                4/5 <StarIcon sx={{ color: "yellow" }} />
-              </h3>
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-gray-600 font-medium">₹500/day</p>
-                <button className="px-3 py-1 text-sm bg-gray-800 text-white md:ms-0 rounded hover:bg-gray-700 ms-2">
-                  Rent Now
-                </button>
-              </div>
+          <div className="min-w-64 p-4 border border-gray-300 rounded-lg m-5">
+            <img
+              src="/tool2.png"
+              alt="Drill"
+              className="h-40 mx-auto rounded"
+            />
+            <h3 className="text-lg font-semibold text-center mt-4 px-5">
+              Drill Machine
+            </h3>
+            <h3 className="text-md font-semibold text-center flex items-center justify-center">
+              4/5 <StarIcon sx={{ color: "yellow" }} />
+            </h3>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-gray-600 font-medium">₹500/day</p>
+              <Link to={'/login'} className="px-3 py-1 text-sm bg-gray-800 text-white md:ms-0 rounded hover:bg-gray-700 ms-2">
+                Rent Now
+              </Link>
             </div>
-            <div className="w-64 p-4 border border-gray-300 rounded-lg m-5">
-              <img
-                src="/driller2.png"
-                alt="Drill"
-                className="h-40 mx-auto rounded"
-              />
-              <h3 className="text-lg font-semibold text-center mt-4 px-5">
-                Drill Machine
-              </h3>
-              <h3 className="text-md font-semibold text-center flex items-center justify-center">
-                4/5 <StarIcon sx={{ color: "yellow" }} />
-              </h3>
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-gray-600 font-medium">₹500/day</p>
-                <button className="px-3 py-1 text-sm bg-gray-800 text-white rounded hover:bg-gray-700">
-                  Rent Now
-                </button>
-              </div>
+          </div>
+          {/* card duplicate  */}
+          <div className="min-w-64 p-4 border border-gray-300 rounded-lg m-5">
+            <img
+              src="/driller2.png"
+              alt="Drill"
+              className="h-40 mx-auto rounded"
+            />
+            <h3 className="text-lg font-semibold text-center mt-4 px-5">
+              Drill Machine
+            </h3>
+            <h3 className="text-md font-semibold text-center flex items-center justify-center">
+              4/5 <StarIcon sx={{ color: "yellow" }} />
+            </h3>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-gray-600 font-medium">₹500/day</p>
+              <button className="px-3 py-1 text-sm bg-gray-800 text-white md:ms-0 rounded hover:bg-gray-700 ms-2">
+                Rent Now
+              </button>
             </div>
-            <div className="w-64 p-4 border border-gray-300 rounded-lg m-5">
-              <img
-                src="/driller2.png"
-                alt="Drill"
-                className="h-40 mx-auto rounded"
-              />
-              <h3 className="text-lg font-semibold text-center mt-4 px-5">
-                Drill Machine
-              </h3>
-              <h3 className="text-md font-semibold text-center flex items-center justify-center">
-                4/5 <StarIcon sx={{ color: "yellow" }} />
-              </h3>
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-gray-600 font-medium">₹500/day</p>
-                <button className="px-3 py-1 text-sm bg-gray-800 text-white rounded hover:bg-gray-700">
-                  Rent Now
-                </button>
-              </div> 
+          </div>
+          {/* card duplicate  */}
+          <div className="min-w-64 p-4 border border-gray-300 rounded-lg m-5">
+            <img
+              src="/tool2.png"
+              alt="Drill"
+              className="h-40 mx-auto rounded"
+            />
+            <h3 className="text-lg font-semibold text-center mt-4 px-5">
+              Drill Machine
+            </h3>
+            <h3 className="text-md font-semibold text-center flex items-center justify-center">
+              4/5 <StarIcon sx={{ color: "yellow" }} />
+            </h3>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-gray-600 font-medium">₹500/day</p>
+              <button className="px-3 py-1 text-sm bg-gray-800 text-white md:ms-0 rounded hover:bg-gray-700 ms-2">
+                Rent Now
+              </button>
             </div>
-            <div className="w-64 p-4 border border-gray-300 rounded-lg m-5">
-              <img
-                src="/driller2.png"
-                alt="Drill"
-                className="h-40 mx-auto rounded"
-              />
-              <h3 className="text-lg font-semibold text-center mt-4 px-5">
-                Drill Machine
-              </h3>
-              <h3 className="text-md font-semibold text-center flex items-center justify-center">
-                4/5 <StarIcon sx={{ color: "yellow" }} />
-              </h3>
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-gray-600 font-medium">₹500/day</p>
-                <button className="px-3 py-1 text-sm bg-gray-800 text-white rounded hover:bg-gray-700">
-                  Rent Now
-                </button>
-              </div>
+          </div>
+          {/* card duplicate  */}
+          <div className="min-w-64 p-4 border border-gray-300 rounded-lg m-5">
+            <img
+              src="/driller2.png"
+              alt="Drill"
+              className="h-40 mx-auto rounded"
+            />
+            <h3 className="text-lg font-semibold text-center mt-4 px-5">
+              Drill Machine
+            </h3>
+            <h3 className="text-md font-semibold text-center flex items-center justify-center">
+              4/5 <StarIcon sx={{ color: "yellow" }} />
+            </h3>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-gray-600 font-medium">₹500/day</p>
+              <button className="px-3 py-1 text-sm bg-gray-800 text-white md:ms-0 rounded hover:bg-gray-700 ms-2">
+                Rent Now
+              </button>
             </div>
+          </div>
         </div>
         <div className="bg-[#F1F0E9]  p-4">
           <h1 className="text-center text-3xl font-bold mt-3">Why Choose Us</h1>
