@@ -10,6 +10,7 @@ import LandingPage from "./components/LandingPage";
 import AdminDasboard from "./admin/AdminDasboard";
 import ProviderDashboard from "./provider/ProviderDashboard";
 import Register from "./AuthPages/Register";
+import ActiveRentals from "./users/ActiveRentals";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,7 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/user/home" element={<Home />} />
+          <Route path="/user/activeRentals" element={<ActiveRentals />} />
 
           <Route path="/provider/dashboard" element={<ProviderDashboard />} />
 

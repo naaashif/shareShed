@@ -2,83 +2,84 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FaSearch, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Home() {
 
   const products = [
-  {
-    id: 1,
-    name: "Drill Machine",
-    company: "ToolRentals Inc.",
-    pricePerDay: 500,
-    rating: 4,
-    image: "/tool3.png",
-  },
-  {
-    id: 2,
-    name: "Cordless Drill",
-    company: "PowerTools Co.",
-    pricePerDay: 400,
-    rating: 3.5,
-    image: "/tool4.png",
-  },
-  {
-    id: 3,
-    name: "Angle Grinder",
-    company: "BuildMax",
-    pricePerDay: 350,
-    rating: 4.2,
-    image: "/tool2.png",
-  },
-  {
-    id: 4,
-    name: "Drill Machine",
-    company: "ToolRentals Inc.",
-    pricePerDay: 500,
-    rating: 4,
-    image: "/tool3.png",
-  },
-  {
-    id: 5,
-    name: "Cordless Drill",
-    company: "PowerTools Co.",
-    pricePerDay: 400,
-    rating: 3.5,
-    image: "/tool4.png",
-  },
-  {
-    id: 6,
-    name: "Angle Grinder",
-    company: "BuildMax",
-    pricePerDay: 350,
-    rating: 4.2,
-    image: "/tool2.png",
-  },
-  {
-    id: 7,
-    name: "Drill Machine",
-    company: "ToolRentals Inc.",
-    pricePerDay: 500,
-    rating: 4,
-    image: "/tool3.png",
-  },
-  {
-    id: 8,
-    name: "Cordless Drill",
-    company: "PowerTools Co.",
-    pricePerDay: 400,
-    rating: 3.5,
-    image: "/tool4.png",
-  },
-  {
-    id: 9,
-    name: "Angle Grinder",
-    company: "BuildMax",
-    pricePerDay: 350,
-    rating: 4.2,
-    image: "/tool2.png",
-  },
-];
+    {
+      id: 1,
+      name: "Drill Machine",
+      company: "ToolRentals Inc.",
+      pricePerDay: 500,
+      rating: 4,
+      image: "/tool3.png",
+    },
+    {
+      id: 2,
+      name: "Cordless Drill",
+      company: "PowerTools Co.",
+      pricePerDay: 400,
+      rating: 3.5,
+      image: "/tool4.png",
+    },
+    {
+      id: 3,
+      name: "Angle Grinder",
+      company: "BuildMax",
+      pricePerDay: 350,
+      rating: 4.2,
+      image: "/tool2.png",
+    },
+    {
+      id: 4,
+      name: "Drill Machine",
+      company: "ToolRentals Inc.",
+      pricePerDay: 500,
+      rating: 4,
+      image: "/tool3.png",
+    },
+    {
+      id: 5,
+      name: "Cordless Drill",
+      company: "PowerTools Co.",
+      pricePerDay: 400,
+      rating: 3.5,
+      image: "/tool4.png",
+    },
+    {
+      id: 6,
+      name: "Angle Grinder",
+      company: "BuildMax",
+      pricePerDay: 350,
+      rating: 4.2,
+      image: "/tool2.png",
+    },
+    {
+      id: 7,
+      name: "Drill Machine",
+      company: "ToolRentals Inc.",
+      pricePerDay: 500,
+      rating: 4,
+      image: "/tool3.png",
+    },
+    {
+      id: 8,
+      name: "Cordless Drill",
+      company: "PowerTools Co.",
+      pricePerDay: 400,
+      rating: 3.5,
+      image: "/tool4.png",
+    },
+    {
+      id: 9,
+      name: "Angle Grinder",
+      company: "BuildMax",
+      pricePerDay: 350,
+      rating: 4.2,
+      image: "/tool2.png",
+    },
+  ];
 
   const activeRentals = Array(4).fill({
     name: "Drill Machine",
@@ -116,76 +117,87 @@ function Home() {
       {/* active rentals */}
       <div className="p-4 bg-[#F1F0E9]">
         <div className="font-bold text-4xl m-4">Active rentals</div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* rental card */}
-          {activeRentals.map((item, index) => (
-            <div key={index}
-              className="flex max-w-2xl shadow-lg rounded-lg bg-white p-4 items-center gap-4" >
-              <img
-                src={item.image}
-                alt="rented tool"
-                className="h-24 w-24 object-contain rounded"
-              />
-              <div className="flex flex-col">
-                <h3 className="font-semibold">{item.name}</h3>
-                <p className="text-sm text-gray-600">{item.date}</p>
-                <p className="text-sm text-gray-600">{item.company}</p>
+          {activeRentals.slice(0, 3).map((item, index) => (
+            <div className="h-40 md:h-32 grid grid-cols-[auto_1fr_auto] gap-4 shadow-lg rounded-lg bg-white items-center ">
+              {/* Image */}
+              <div className="w-40 h-40 md:w-32 md:h-32 flex items-center justify-center border border-gray-300 bg-gray-100 rounded-lg shrink-0 ">
+                <img
+                  src={item.image}
+                  alt="rented tool"
+                  className="max-w-full max-h-full object-contain rounded-l-lg"
+                />
               </div>
-              <div className="ml-auto flex flex-col items-end">
-                <p className="font-semibold text-lg">{item.price}</p>
-                <button className="mt-2 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-500 text-sm">
-                  Cancel Rental
-                </button>
+
+              {/* Details */}
+              <div className="flex justify-between flex-col md:flex-row gap-2 p-4">
+
+                <div className="min-w-0">
+                  <h3 className="font-semibold truncate">{item.name}</h3>
+                  <p className="text-sm text-gray-600 truncate">{item.date}</p>
+                  <p className="text-sm text-gray-600 truncate">{item.company}</p>
+                </div>
+
+                {/* Action */}
+                <div className="flex flex-col justify-center  md:items-end gap-2">
+                  <p className="font-semibold px-3">{item.price}</p>
+                  <button className="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-400 w-fit">
+                    view more
+                  </button>
+                </div>
               </div>
             </div>
-
           ))}
 
         </div>
         {/* all rentals button */}
-        <div className="items-center flex justify-center m-5">
-          <button
-            type="button"
-            className="bg-[#1C352D] rounded-lg py-2 px-3 font-semibold text-lg shadow-xl text-white" >
-            See All Active Rentals...
-          </button>
-        </div>
+        {activeRentals.length > 3 &&
+          <div className="items-center flex justify-center m-5">
+            <Link to={'/user/activeRentals'}
+              className="bg-[#1C352D] rounded-lg py-2 px-3 font-semibold text-lg shadow-xl text-white" >
+              See All Active Rentals...
+            </Link>
+          </div>}
       </div>
       {/* featured products */}
       <div id="products" className="bg-[#F1F0E9] shadow-xl">
-        <div className="m-4 font-bold text-2xl md:text-4xl">
+        <div className="ms-6  font-bold text-2xl md:text-4xl">
           Recommended Products
         </div>
         {/* set of cards */}
-        {/* <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 bg-[#F1F0E9] m-4 p-2 justify-center"> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 ">
 
           {/* Duplicate card */}
-          {products.map((product) => (
+          {products.slice(0, 8).map((product) => (
             <div
               key={product.id}
-              className="border border-gray-300 rounded-lg bg-white shadow p-4 flex flex-col"
+              className="h-44 border border-gray-300 rounded-lg bg-white flex gap-2"
             >
-              <img
-                src={product.image}
-                alt="tool"
-                className="h-40 object-contain mx-auto rounded"
-              />
-
-              <h3 className="text-lg font-semibold text-center mt-4">
-                {product.name}
-              </h3>
-
-              <div className="flex justify-center items-center gap-1 font-semibold">
-                {product.rating}/5
-                <FaStar className="text-yellow-400" />
+              <div className="w-44 h-44">
+                <img
+                  src={product.image}
+                  alt="tool"
+                  className="max-w-full max-h-full object-contain rounded-l-lg"
+                />
               </div>
 
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-gray-600 font-medium">{product.pricePerDay}/day</p>
-                <button className="px-3 py-1 text-sm bg-gray-800 text-white rounded hover:bg-gray-700">
-                  Rent Now
-                </button>
+              <div className="flex flex-col">
+                <h3 className="text-lg font-semibold text-center mt-4">
+                  {product.name}
+                </h3>
+
+                <div className="flex justify-center items-center gap-1 font-semibold">
+                  {product.rating}/5
+                  <FaStar className="text-yellow-400" />
+                </div>
+
+                <div className="flex flex-col items-center justify-between mt-4">
+                  <p className="text-gray-600 font-medium">{product.pricePerDay}/day</p>
+                  <button className="px-3 py-1 text-sm bg-gray-800 text-white rounded hover:bg-gray-700">
+                    Rent Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}
