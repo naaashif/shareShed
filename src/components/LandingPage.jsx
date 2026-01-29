@@ -42,7 +42,7 @@ function LandingPage() {
             </Link>
           </div>
         </div>
-        <div className="bg-[#F1F0E9] flex justify-around p-5">
+        <div id="distributers" className="bg-[#F1F0E9] flex justify-around p-5">
           <div className="flex flex-col p-5 text-xl gap-4 mt-5">
             <h1 className="font-bold text-2xl">Browse Tools</h1>
             <p>

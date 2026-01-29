@@ -11,6 +11,8 @@ import AdminDasboard from "./admin/AdminDasboard";
 import ProviderDashboard from "./provider/ProviderDashboard";
 import Register from "./AuthPages/Register";
 import ActiveRentals from "./users/ActiveRentals";
+import Products from "./users/Products";
+import Homess from "./users/Homess";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,7 +39,10 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/user/home" element={<Home />} />
+          <Route path="/user/homes" element={<Homess />} />
+
           <Route path="/user/activeRentals" element={<ActiveRentals />} />
+          <Route path="/user/products" element={<Products />} />
 
           <Route path="/provider/dashboard" element={<ProviderDashboard />} />
 

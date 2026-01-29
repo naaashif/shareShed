@@ -8,20 +8,20 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Footer() {
   return (
-    <div className='bg-[#1C352D] text-white'>
+    <div className='bg-[#1C352D] text-white md:pb-1 pb-5'>
       <div className='flex flex-col md:flex-row justify-around p-10 '>
         <div className=" flex flex-col space-y-3 mt-10 md:mt-2">
           <h1 className='text-3xl font-medium'>ShareShed</h1>
-          <a href='/products' className='text-lg font-light'>Our Products</a>
+          <a href='/user/products' className='text-lg font-light'>Our Products</a>
           <a href='/distributers' className='text-lg font-light'>Distributers</a>
-          <a href='/' className='text-lg font-light'> Refer Us</a>
+          <a href='/refer' className='text-lg font-light'> Refer Us</a>
 
         </div>
         <div className="flex flex-col space-y-3 mt-10 md:mt-2">
           <h1 className='text-2xl font-medium'>Help</h1>
-          <a href='/products' className='text-lg font-light'>Contact Us</a>
+          <a href='/contact' className='text-lg font-light'>Contact Us</a>
           <a href='/distributers' className='text-lg font-light'>FAQs</a>
-          <a href='/' className='text-lg font-light'> </a>
+          <a href='/support' className='text-lg font-light'>Support</a>
         </div>
         <div className="flex flex-col mt-10 md:mt-2">
           <h1 className='text-2xl font-medium'>About</h1>
@@ -46,12 +46,12 @@ function Footer() {
         </div>
       </div>
       <div className="flex justify-between md:flex-row flex-col space-y-4 items-center">
-        <div className="ms-5">
+        <div className="md:ms-5">
           <h1>&copy;2026 ShareShed inc. All rights reserved.</h1>
         </div>
         <div className="text-slate-500 text-sm gap-4 flex md:me-12">
-          <a href="">Privacy Policy</a>
-          <a href="/login">Terms and Conditions</a>
+          <a href="/docs/privacy">Privacy Policy</a>
+          <a href="/docs/t&c">Terms and Conditions</a>
           <a href="https://www.github.com/nashift">Developers</a>
         </div>
       </div>

@@ -5,8 +5,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
   const [hamburgButton, setHamburgButton] = useState(false)
-  console.log(hamburgButton);
-
 
   return (
     <div className='bg-[#1C352D] flex justify-between items-center' style={{ height: '80px' }} >
@@ -25,15 +23,15 @@ function Header() {
           {/* Mobile Dropdown Menu */}
           {hamburgButton && (
             <div className="bg-[#F1F0E9]/70  absolute top-20 left-0 w-full flex flex-col text-center items-center py-4 gap-4 z-50 shadow-lg md:hidden">
-              <Link to="/products" className='text-[#1C352D] font-bold text-lg w-full' onClick={() => setHamburgButton(false)}>Products</Link>
-              <Link to="/contact" className='text-[#1C352D] bg-[#F1F0E9] py-2 w-full  font-bold text-lg' onClick={() => setHamburgButton(false)}>Contact Us</Link>
+              <Link to="/user/products" className='text-[#1C352D] font-bold text-lg w-full' onClick={() => setHamburgButton(false)}>Products</Link>
+              <Link to="/user/homes" className='text-[#1C352D] bg-[#F1F0E9] py-2 w-full  font-bold text-lg' onClick={() => setHamburgButton(false)}>Contact Us</Link>
               <Link to="/login" className='text-[#1C352D] font-bold text-lg w-full' onClick={() => setHamburgButton(false)}>Log In</Link>
             </div>
           )}
         </div>
         <div className="hidden md:flex text-white items-center gap-3 m-3 text-lg font-semibold">
-          <Link to={"/products"} className='bg-white text-[#1C352D] rounded px-3 py-1'>Products</Link>
-          <Link to={'/contact'} className='bg-white text-[#1C352D] rounded px-3 py-1'>Contact Us</Link>
+          <Link to={"/user/products"} className='bg-white text-[#1C352D] rounded px-3 py-1'>Products</Link>
+          <Link to={'/user/homes'} className='bg-white text-[#1C352D] rounded px-3 py-1'>Contact Us</Link>
           <Link to={'/login'} className='border rounded-lg px-3 py-1' >Log In</Link>
         </div>
       </div>
