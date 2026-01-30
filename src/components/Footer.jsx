@@ -35,7 +35,8 @@ function Footer() {
           <div className="font-semibold text-xl">Subscribe to Us</div>
           <div className='flex mt-4'>
             <input type="email" placeholder='example@gmail.com' className='text-black bg-slate-200 rounded-l placeholder-slate-400 px-4 py-1 border-none' />
-            <button className='bg-amber-400 px-3 py-1 rounded-r'>Subscribe</button>
+            <button className='bg-amber-400 px-3 py-1 rounded-r'
+            onClick={() => alert("Subscribed to ShareShed!")}>Subscribe</button>
           </div>
           <div className="mt-5 text-3xl space-x-2 ms-4">
             <a href="https://www.instagram.com"> <InstagramIcon /> </a>

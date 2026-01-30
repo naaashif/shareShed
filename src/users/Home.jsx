@@ -33,9 +33,60 @@ function Home() {
       image: "/tool2.png",
     },
     {
-      id:4,
-      
-      
+      id: 4,
+      name: "Circular Saw",
+      company: "CutTools Ltd.",
+      pricePerDay: 300,
+      rating: 4.1,
+      image: "/tool3.png",
+    },
+    {
+      id: 5,
+      name: "Hammer Drill",
+      company: "HeavyDuty Tools",
+      pricePerDay: 450,
+      rating: 4.3,
+      image: "/tool2.png",
+    },
+    {
+      id: 6,
+      name: "Jigsaw",
+      company: "CuttingEdge",
+      pricePerDay: 320,
+      rating: 3.9,
+      image: "/tool4.png",
+    },
+    {
+      id: 7,
+      name: "Rotary Sander",
+      company: "SmoothWorks",
+      pricePerDay: 280,
+      rating: 4.0,
+      image: "/tool2.png",
+    },
+    {
+      id: 8,
+      name: "Impact Wrench",
+      company: "TorquePro",
+      pricePerDay: 600,
+      rating: 4.5,
+      image: "/tool1.png",
+    },
+    {
+      id: 9,
+      name: "Tile Cutter",
+      company: "TileMaster",
+      pricePerDay: 350,
+      rating: 4.1,
+      image: "/tool1.png",
+    },
+    {
+      id: 10,
+      name: "Nail Gun",
+      company: "FastenRight",
+      pricePerDay: 550,
+      rating: 4.4,
+      image: "/tool3.png",
     }
   ];
 
@@ -49,6 +100,33 @@ function Home() {
       pricePerDay: 500,
       image: "/tool1.png",
     },
+    {
+      id: 2,
+      name: "Cordless Drill",
+      startDate: "2023-08-10",
+      endDate: "2023-08-14",
+      company: "PowerTools Co.",
+      pricePerDay: 400,
+      image: "/tool4.png",
+    },
+    {
+      id: 3,
+      name: "Angle Grinder",
+      startDate: "2023-08-11",
+      endDate: "2023-08-13",
+      company: "BuildMax",
+      pricePerDay: 350,
+      image: "/tool2.png",
+    },
+    {
+      id: 4,
+      name: "Circular Saw",
+      startDate: "2023-08-09",
+      endDate: "2023-08-12",
+      company: "CutTools Ltd.",
+      pricePerDay: 300,
+      image: "/tool3.png",
+    }
   ];
 
   return (
@@ -109,18 +187,17 @@ function Home() {
                   <div>
                     <h3 className="font-semibold text-base md:text-lg truncate">{item.name}</h3>
                     <p className="text-xs md:text-sm text-gray-600 truncate">
-                    {/* {`${item.startDate} to ${item.endDate}`} */}
-                    {item.endDate}
+                    {`${item.startDate} to ${item.endDate}`}
                     </p>
                     <p className="text-xs md:text-sm text-gray-600 truncate">{item.company}</p>
                   </div>
 
                   {/* Action */}
                   <div className="flex items-center justify-between mt-2 gap-2">
-                    <p className="font-semibold text-sm md:text-base">₹{item.pricePerDay}/day</p>
+                    <p className="font-semibold text-base md:text-lg">₹{item.pricePerDay}/day</p>
                     <Link 
                       to={`/user/rental/${item.id}`}
-                      className="px-2 md:px-3 py-1 bg-[#1C352D] text-white rounded text-xs md:text-sm hover:bg-[#2a4a3f] transition whitespace-nowrap"
+                      className="px-2 md:px-3 py-1 bg-[#1C352D] text-white rounded text-sm md:text-base hover:bg-[#2a4a3f] transition whitespace-nowrap"
                     >
                       View Details
                     </Link>
@@ -158,13 +235,13 @@ function Home() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 p-4">
-          {products.map((product) => (
+          {products.slice(0,8).map((product) => (
             <div
               key={product.id}
               className="border border-gray-300 rounded-lg bg-white flex flex-col sm:flex-row overflow-hidden hover:shadow-lg transition-shadow"
             >
               {/* Image */}
-              <div className="w-full h-48 sm:w-44 sm:h-44 shrink-0 bg-gray-50 flex items-center justify-center">
+              <div className="w-full h-64 sm:w-44 sm:h-44 shrink-0 bg-gray-50 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={`${product.name} from ${product.company}`}
@@ -189,7 +266,7 @@ function Home() {
                 </div>
                 
                 <button
-                  onClick={() => handleRentNow(product.id)}
+                  // onClick={() => handleRentNow(product.id)}
                   className="mt-3 px-4 py-2 text-sm bg-[#1C352D] text-white rounded hover:bg-[#2a4a3f] transition w-full sm:w-auto"
                 >
                   Rent Now
