@@ -32,6 +32,11 @@ function Home() {
       rating: 4.2,
       image: "/tool2.png",
     },
+    {
+      id:4,
+      
+      
+    }
   ];
 
   const activeRentals = [
@@ -46,22 +51,12 @@ function Home() {
     },
   ];
 
-  const handleSearch = () => {
-    console.log("Searching for:", searchQuery);
-    // Implement search logic
-  };
-
-  const handleRentNow = (productId) => {
-    console.log("Renting product:", productId);
-    // Implement rent logic
-  };
-
   return (
     <div className="bg-[#F1F0E9] min-h-screen">
       <Header />
       
       {/* Hero Section */}
-      <div className="flex justify-center flex-col items-center min-h-96 bg-[url(/hero.png)] bg-cover bg-center px-4 py-12">
+      <div className="flex justify-center flex-col items-center min-h-96 bg-[url(/hero.png)] bg-cover bg-top-left px-4 py-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C352D] text-center">
           Welcome back, User
         </h1>
@@ -71,7 +66,7 @@ function Home() {
         
         {/* Search Bar */}
         <div className="bg-white border border-white rounded-2xl p-2 flex items-center gap-2 sm:gap-4 shadow-2xl mt-6 w-11/12 max-w-2xl">
-          <FaSearch className="w-5 h-5 ml-2 sm:ml-4 text-slate-700 flex-shrink-0" />
+          <FaSearch className="w-5 h-5 ml-2 sm:ml-4 text-slate-700 shrink-0" />
           <input
             type="text"
             placeholder="Search for drills, saws, sanders..."
@@ -81,8 +76,8 @@ function Home() {
             aria-label="Search for tools"
           />
           <button 
-            onClick={handleSearch}
-            className="bg-[#1C352D] text-white px-4 sm:px-6 py-2 rounded-xl font-semibold transition transform hover:scale-105 hover:bg-[#2a4a3f] flex-shrink-0"
+            // onClick={handleSearch}
+            className="bg-[#1C352D] text-white px-4 sm:px-6 py-2 rounded-xl font-semibold transition transform hover:scale-105 hover:bg-[#2a4a3f] shrink-0"
             aria-label="Search"
           >
             Search
@@ -98,10 +93,10 @@ function Home() {
             {activeRentals.slice(0, 3).map((item) => (
               <div 
                 key={item.id} 
-                className="min-h-[160px] md:h-32 grid grid-cols-[auto_1fr] gap-2 md:gap-4 shadow-lg rounded-lg bg-white items-center overflow-hidden"
+                className="min-h-40 md:h-32 grid grid-cols-[auto_1fr] gap-2 md:gap-4 shadow-lg rounded-lg bg-white items-center overflow-hidden"
               >
                 {/* Image */}
-                <div className="w-32 h-32 md:w-28 md:h-28 flex-shrink-0 flex items-center justify-center border border-gray-300 bg-gray-100 rounded-lg m-2">
+                <div className="w-32 h-32 md:w-28 md:h-28 shrink-0 flex items-center justify-center border border-gray-300 bg-gray-100 rounded-lg m-2">
                   <img
                     src={item.image}
                     alt={`${item.name} from ${item.company}`}
@@ -114,7 +109,8 @@ function Home() {
                   <div>
                     <h3 className="font-semibold text-base md:text-lg truncate">{item.name}</h3>
                     <p className="text-xs md:text-sm text-gray-600 truncate">
-                      {new Date(item.startDate).toLocaleDateString()} - {new Date(item.endDate).toLocaleDateString()}
+                    {/* {`${item.startDate} to ${item.endDate}`} */}
+                    {item.endDate}
                     </p>
                     <p className="text-xs md:text-sm text-gray-600 truncate">{item.company}</p>
                   </div>
@@ -168,7 +164,7 @@ function Home() {
               className="border border-gray-300 rounded-lg bg-white flex flex-col sm:flex-row overflow-hidden hover:shadow-lg transition-shadow"
             >
               {/* Image */}
-              <div className="w-full h-48 sm:w-44 sm:h-44 flex-shrink-0 bg-gray-50 flex items-center justify-center">
+              <div className="w-full h-48 sm:w-44 sm:h-44 shrink-0 bg-gray-50 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={`${product.name} from ${product.company}`}
@@ -186,7 +182,7 @@ function Home() {
                     {product.company}
                   </p>
                   <div className="flex items-center gap-1 mt-1">
-                    <span className="text-sm font-medium">{product.rating.toFixed(1)}/5</span>
+                    <span className="text-sm font-medium">{product.rating}/5</span>
                     <FaStar className="text-yellow-400 w-4 h-4" />
                   </div>
                   <p className="text-gray-700 font-semibold mt-2">₹{product.pricePerDay}/day</p>
