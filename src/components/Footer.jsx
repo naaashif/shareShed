@@ -3,6 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,7 +21,7 @@ function Footer() {
         <div className="flex flex-col space-y-3 mt-10 md:mt-2">
           <h1 className='text-2xl font-medium'>Help</h1>
           <a href='/contact' className='text-lg font-light'>Contact Us</a>
-          <a href='/distributers' className='text-lg font-light'>FAQs</a>
+          <a href='/faq' className='text-lg font-light'>FAQs</a>
           <a href='/support' className='text-lg font-light'>Support</a>
         </div>
         <div className="flex flex-col mt-10 md:mt-2">
@@ -52,7 +53,7 @@ function Footer() {
         </div>
         <div className="text-slate-500 text-sm gap-4 flex md:me-12">
           <a href="/docs/privacy">Privacy Policy</a>
-          <a href="/docs/t&c">Terms and Conditions</a>
+          <Link to="/docs/t&c">Terms and Conditions</Link>
           <a href="https://www.github.com/nashift">Developers</a>
         </div>
       </div>
@@ -60,4 +61,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer 

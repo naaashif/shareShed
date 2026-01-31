@@ -132,7 +132,7 @@ function Home() {
   return (
     <div className="bg-[#F1F0E9] min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <div className="flex justify-center flex-col items-center min-h-96 bg-[url(/hero.png)] bg-cover bg-top-left px-4 py-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C352D] text-center">
@@ -141,7 +141,7 @@ function Home() {
         <p className="text-lg sm:text-xl md:text-2xl mt-4 font-semibold text-[#1C352D] text-center">
           Rent tools from our trusted providers
         </p>
-        
+
         {/* Search Bar */}
         <div className="bg-white border border-white rounded-2xl p-2 flex items-center gap-2 sm:gap-4 shadow-2xl mt-6 w-11/12 max-w-2xl">
           <FaSearch className="w-5 h-5 ml-2 sm:ml-4 text-slate-700 shrink-0" />
@@ -153,7 +153,7 @@ function Home() {
             className="flex-1 border-none outline-none py-1 min-w-0 text-black placeholder-slate-700"
             aria-label="Search for tools"
           />
-          <button 
+          <button
             // onClick={handleSearch}
             className="bg-[#1C352D] text-white px-4 sm:px-6 py-2 rounded-xl font-semibold transition transform hover:scale-105 hover:bg-[#2a4a3f] shrink-0"
             aria-label="Search"
@@ -169,8 +169,8 @@ function Home() {
           <h2 className="font-bold text-2xl md:text-4xl m-4">Active Rentals</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {activeRentals.slice(0, 3).map((item) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className="min-h-40 md:h-32 grid grid-cols-[auto_1fr] gap-2 md:gap-4 shadow-lg rounded-lg bg-white items-center overflow-hidden"
               >
                 {/* Image */}
@@ -187,7 +187,7 @@ function Home() {
                   <div>
                     <h3 className="font-semibold text-base md:text-lg truncate">{item.name}</h3>
                     <p className="text-xs md:text-sm text-gray-600 truncate">
-                    {`${item.startDate} to ${item.endDate}`}
+                      {`${item.startDate} to ${item.endDate}`}
                     </p>
                     <p className="text-xs md:text-sm text-gray-600 truncate">{item.company}</p>
                   </div>
@@ -195,11 +195,11 @@ function Home() {
                   {/* Action */}
                   <div className="flex items-center justify-between mt-2 gap-2">
                     <p className="font-semibold text-base md:text-lg">₹{item.pricePerDay}/day</p>
-                    <Link 
+                    <Link
                       to={`/user/rental/${item.id}`}
-                      className="px-2 md:px-3 py-1 bg-[#1C352D] text-white rounded text-sm md:text-base hover:bg-[#2a4a3f] transition whitespace-nowrap"
+                      className="px-2 md:px-3 py-1 bg-[#1C352D] text-white rounded text-base hover:bg-[#2a4a3f] transition whitespace-nowrap"
                     >
-                      View Details
+                      manage
                     </Link>
                   </div>
                 </div>
@@ -223,11 +223,11 @@ function Home() {
 
       {/* Featured Products */}
       <section id="products" className="bg-[#F1F0E9] shadow-xl py-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 px-4 mb-4">
+        <div className="flex justify-between sm:justify-start sm:flex-row items-start sm:items-center gap-4 px-4 mb-4">
           <h2 className="font-bold text-2xl md:text-4xl">Recommended Products</h2>
           <Link
-            to="/user/products"
-            className="bg-[#1C352D] rounded-lg py-2 px-4 md:px-6 font-semibold text-base md:text-lg shadow-xl text-white hover:bg-[#2a4a3f] transition"
+            to="/user/allProducts"
+            className="bg-[#1C352D] rounded-lg py-1 px-4 md:px-6 font-semibold text-base md:text-lg shadow-xl text-white hover:bg-[#2a4a3f] transition"
           >
             View All
           </Link>
@@ -235,7 +235,7 @@ function Home() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 p-4">
-          {products.slice(0,8).map((product) => (
+          {products.slice(0, 8).map((product) => (
             <div
               key={product.id}
               className="border border-gray-300 rounded-lg bg-white flex flex-col sm:flex-row overflow-hidden hover:shadow-lg transition-shadow"
@@ -251,26 +251,28 @@ function Home() {
 
               {/* Details */}
               <div className="flex flex-col p-4 sm:p-3 justify-between flex-1">
-                <div>
-                  <h3 className="text-base md:text-lg font-semibold line-clamp-1">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm md:text-base text-gray-600 mt-1 line-clamp-1">
-                    {product.company}
-                  </p>
-                  <div className="flex items-center gap-1 mt-1">
-                    <span className="text-sm font-medium">{product.rating}/5</span>
-                    <FaStar className="text-yellow-400 w-4 h-4" />
+                <div className="flex flex-row justify-between sm:flex-col">
+                  <div>
+                    <h3 className="text-lg font-semibold line-clamp-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-base font-semibold text-gray-600 mt-1 line-clamp-1">
+                      {product.company}
+                    </p>
+                    <div className="flex items-center gap-1 mt-1">
+                      <span className="text-sm font-medium">{product.rating}/5</span>
+                      <FaStar className="text-yellow-400 w-4 h-4" />
+                    </div>
                   </div>
-                  <p className="text-gray-700 font-semibold mt-2">₹{product.pricePerDay}/day</p>
+                  <div className="mt-1">
+                    <p className="text-gray-700 font-semibold mt-2">₹{product.pricePerDay}/day</p>
+                    <button
+                      // onClick={() => handleRentNow(product.id)}
+                      className="mt-3 px-4 py-2 text-sm bg-[#1C352D] text-white rounded hover:bg-[#2a4a3f] transition w-fit sm:w-full"
+                    > Rent Now </button>
+                  </div>
                 </div>
-                
-                <button
-                  // onClick={() => handleRentNow(product.id)}
-                  className="mt-3 px-4 py-2 text-sm bg-[#1C352D] text-white rounded hover:bg-[#2a4a3f] transition w-full sm:w-auto"
-                >
-                  Rent Now
-                </button>
+
               </div>
             </div>
           ))}
