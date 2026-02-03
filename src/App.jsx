@@ -13,14 +13,14 @@ import Register from "./AuthPages/Register";
 import ActiveRentals from "./users/ActiveRentals";
 import AllProducts from "./users/AllProducts";
 import Contact from "./pages/Contact";
+import Docs from "./pages/Docs";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+      setLoading(false);}, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -46,8 +46,18 @@ function App() {
           <Route path="/provider/dashboard" element={<ProviderDashboard />} />
 
           <Route path="/admin/dashboard" element={<AdminDasboard />} />
-
+          {/* contact,sopport, dev */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/support" element={<Contact />} />
+          <Route path="/developers" element={<Contact />} />
+          {/* all to the docs */}
+          <Route path="/faq" element={<Docs />} />
+          <Route path="/about" element={<Docs />} />
+          <Route path="/terms" element={<Docs />} />
+          <Route path="/policy" element={<Docs />} />
+          <Route path="/referUs" element={<Docs />} />
+          <Route path="/distributors" element={<Docs />} />
+
 
 
           <Route path="/*" element={<Pnf />} />

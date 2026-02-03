@@ -1,64 +1,132 @@
 import React from 'react'
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import { Link } from 'react-router-dom';
-
-
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <div className='bg-[#1C352D] text-white md:pb-1 pb-5'>
-      <div className='flex flex-col md:flex-row justify-around p-10 '>
-        <div className=" flex flex-col space-y-3 mt-10 md:mt-2">
-          <h1 className='text-3xl font-medium'>ShareShed</h1>
-          <a href='/user/products' className='text-lg font-light'>Our Products</a>
-          <a href='/distributers' className='text-lg font-light'>Distributers</a>
-          <a href='/refer' className='text-lg font-light'> Refer Us</a>
-
-        </div>
+    <footer className='bg-[#1C352D] text-white md:pb-1 pb-5'>
+      <div className='flex flex-col md:flex-row justify-around p-10 gap-8'>
+        {/* ShareShed Section */}
         <div className="flex flex-col space-y-3 mt-10 md:mt-2">
-          <h1 className='text-2xl font-medium'>Help</h1>
-          <a href='/contact' className='text-lg font-light'>Contact Us</a>
-          <a href='/faq' className='text-lg font-light'>FAQs</a>
-          <a href='/support' className='text-lg font-light'>Support</a>
+          <h2 className='text-3xl font-medium'>ShareShed</h2>
+          <Link to='/user/allProducts' className='text-lg font-light hover:text-amber-400 transition-colors'>
+            Our Products
+          </Link>
+          <Link to='/distributors' className='text-lg font-light hover:text-amber-400 transition-colors'>
+            Become a Distributor
+          </Link>
+          <Link to='/referUs' className='text-lg font-light hover:text-amber-400 transition-colors'>
+            Refer Us
+          </Link>
         </div>
-        <div className="flex flex-col mt-10 md:mt-2">
-          <h1 className='text-2xl font-medium'>About</h1>
-          <span className='w-62'>ShareShed makes renting tools simple and convenient.
+
+        {/* Help Section */}
+        <div className="flex flex-col space-y-3 mt-10 md:mt-2">
+          <h2 className='text-2xl font-medium'>Help</h2>
+          <Link to='/contact' className='text-lg font-light hover:text-amber-400 transition-colors'>
+            Contact Us
+          </Link>
+          <Link to='/faq' className='text-lg font-light hover:text-amber-400 transition-colors'>
+            FAQs
+          </Link>
+          <Link to='/contact' className='text-lg font-light hover:text-amber-400 transition-colors'>
+            Support
+          </Link>
+        </div>
+
+        {/* About Section */}
+        <div className="flex flex-col mt-10 md:mt-2 max-w-xs">
+          <h2 className='text-2xl font-medium mb-3'>About</h2>
+          <p className='text-base leading-relaxed'>
+            ShareShed makes renting tools simple and convenient.
             Find the right tools from trusted providers without the need to buy.
             Choose your dates, send a rental request, and communicate easily if needed.
-            Get the job done with the tools you need, right when you need them.</span>
+            Get the job done with the tools you need, right when you need them.
+          </p>
+        </div>
 
-        </div>
+        {/* Subscribe Section */}
         <div className="mt-10 md:mt-2">
-          <div className="font-semibold text-xl">Subscribe to Us</div>
-          <div className='flex mt-4'>
-            <input type="email" placeholder='example@gmail.com' className='text-black bg-slate-200 rounded-l placeholder-slate-400 px-4 py-1 border-none' />
-            <button className='bg-amber-400 px-3 py-1 rounded-r'
-            onClick={() => alert("Subscribed to ShareShed!")}>Subscribe</button>
-          </div>
-          <div className="mt-5 text-3xl space-x-2 ms-4">
-            <a href="https://www.instagram.com"> <InstagramIcon /> </a>
-            <a href="https://www.linkedin.com"> <LinkedInIcon /> </a>
-            <a href="https://www.github.com"> <GitHubIcon /> </a>
-            <a href="https://www.facebook.com"> <FacebookIcon /> </a>
+          <h2 className='font-semibold text-xl mb-4'>Subscribe to Us</h2>
+          <form className='flex' onSubmit={(e) => e.preventDefault()}>
+            <input 
+              type="email" 
+              placeholder='example@gmail.com' 
+              className='text-black bg-slate-200 rounded-l placeholder-slate-400 px-4 py-2 border-none focus:outline-none focus:ring-2 focus:ring-amber-400' 
+              required
+              aria-label="Email for newsletter"
+            />
+            <button 
+              type="submit"
+              className='bg-amber-400 px-4 py-2 rounded-r hover:bg-amber-500 transition-colors font-medium text-[#1C352D]'
+            >
+              Subscribe
+            </button>
+          </form>
+          
+          {/* Social Media Links */}
+          <div className="mt-5 flex gap-4 text-3xl">
+            <a 
+              href="https://www.instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-amber-400 transition-colors"
+              aria-label="Instagram"
+            >
+              <FaInstagram fontSize="inherit" />
+            </a>
+            <a 
+              href="https://www.linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-amber-400 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin fontSize="inherit" />
+            </a>
+            <a 
+              href="https://www.github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-amber-400 transition-colors"
+              aria-label="GitHub"
+            >
+              <FaGithub fontSize="inherit" />
+            </a>
+            <a 
+              href="https://www.facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-amber-400 transition-colors"
+              aria-label="Facebook"
+            >
+              <FaFacebook fontSize="inherit" />
+            </a>
           </div>
         </div>
       </div>
-      <div className="flex justify-between md:flex-row flex-col space-y-4 items-center">
-        <div className="md:ms-5">
-          <h1>&copy;2026 ShareShed inc. All rights reserved.</h1>
+
+      {/* Bottom Bar */}
+      <div className="flex justify-between md:flex-row flex-col space-y-4 md:space-y-0 items-center px-5 pt-5 border-t border-gray-600">
+        <div>
+          <p className="text-sm">&copy; 2026 ShareShed Inc. All rights reserved.</p>
         </div>
-        <div className="text-slate-500 text-sm gap-4 flex md:me-12">
-          <a href="/docs/privacy">Privacy Policy</a>
-          <Link to="/docs/t&c">Terms and Conditions</Link>
-          <a href="https://www.github.com/nashift">Developers</a>
+        <div className="text-slate-400 text-sm flex gap-6 md:me-7">
+          <Link to="/policy" className="hover:text-white transition-colors">
+            Privacy Policy
+          </Link>
+          <Link to="/terms" className="hover:text-white transition-colors">
+            Terms and Conditions
+          </Link>
+          <Link 
+            to="/developers" className="hover:text-white transition-colors"
+          >
+            Developers
+          </Link>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 
-export default Footer 
+export default Footer

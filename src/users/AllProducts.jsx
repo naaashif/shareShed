@@ -181,7 +181,7 @@ function AllProducts() {
               // onClick={handleSearch}
               className="bg-[#1C352D] text-white px-4 sm:px-6 py-2 rounded-xl font-semibold transition transform hover:scale-105 hover:bg-[#2a4a3f] shrink-0"
               aria-label="Search"
-            ></button>
+            >Search</button>
           </div>
         </div>
         {/* Filters Section */}
@@ -329,7 +329,7 @@ function AllProducts() {
                     alt={`${product.name} from ${product.company}`}
                     className="max-w-full max-h-full object-contain p-2"
                   />
-                </div>
+                </div> 
 
                 {/* Details */}
                 <div className="flex flex-col p-4 sm:p-3 justify-between flex-1">
