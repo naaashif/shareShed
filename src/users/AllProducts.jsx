@@ -159,9 +159,9 @@ function AllProducts() {
   });
 
   return (
-    <div>
+    <div className=' bg-[#F1F0E9]'>
       <Header />
-      <div className='pt-6 bg-[#F1F0E9]'>
+      <div className='pt-6'>
         {/* heading */}
         <div className='flex flex-col items-center'>
           <h1 className='text-4xl font-bold mt-6'>Our Products</h1>

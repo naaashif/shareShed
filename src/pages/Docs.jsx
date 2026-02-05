@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 
 function Docs() {
-    
+
     const [activeSection, setActiveSection] = useState('faqs')
     const scrollToSection = (sectionId) => {
         setActiveSection(sectionId)
@@ -24,7 +24,7 @@ function Docs() {
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">Documentation</h1>
                     <p className="text-lg text-gray-300">Everything you need to know about ShareShed</p>
                 </div>
-            
+
             </div>
 
             {/* Sticky Navigation */}
@@ -137,6 +137,15 @@ function Docs() {
                                 credit cards and digital payment methods.
                             </p>
                         </div>
+                        <div>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">Can I rent a sledgehammer for "stress relief purposes"?</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                While we admire your creative approach to anger management, we recommend therapy, yoga, or
+                                maybe a punching bag instead. That said, if you have some legitimate demolition work (like
+                                tearing down a wall, not your neighbor's mailbox), go for it! Just remember: the sledgehammer
+                                is for projects, not feelings.
+                            </p>
+                        </div>
                     </div>
                 </section>
 
@@ -144,8 +153,6 @@ function Docs() {
                 <section id="privacy" className="mb-16 scroll-mt-24">
                     <h2 className="text-3xl font-bold text-[#1C352D] mb-6">Privacy Policy</h2>
                     <div className="bg-white rounded-lg shadow-md p-6 space-y-4">
-                        <p className="text-sm text-gray-500">Last updated: February 3, 2026</p>
-
                         <div>
                             <h3 className="text-xl font-semibold text-gray-800 mb-2">Information We Collect</h3>
                             <p className="text-gray-600 leading-relaxed mb-2">
@@ -157,7 +164,9 @@ function Docs() {
                                 <li>Profile information and preferences</li>
                                 <li>Communication between users through our platform</li>
                                 <li>Tool listings and rental history</li>
+                                <li>your daily self-esteem levels and occasional selfies ( just kidding, we don't collect that )</li>
                             </ul>
+                            
                         </div>
 
                         <div>
@@ -205,7 +214,7 @@ function Docs() {
                         <div>
                             <h3 className="text-xl font-semibold text-gray-800 mb-2">Contact Us</h3>
                             <p className="text-gray-600 leading-relaxed">
-                                If you have questions about this Privacy Policy, please contact us at 
+                                If you have questions about this Privacy Policy, please contact us at
                                 <a href='mailto:nashif104@gmail.com' className='text-blue-500 hover:underline'>
                                     &nbsp;shareshed@mail.com</a> or through our support page.
                             </p>

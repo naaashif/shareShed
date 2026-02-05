@@ -67,7 +67,7 @@ function Footer() {
           {/* Social Media Links */}
           <div className="mt-5 flex gap-4 text-3xl">
             <a 
-              href="https://www.instagram.com" 
+              href="https://www.instagram.com/nashif.me" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-amber-400 transition-colors"
