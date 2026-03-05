@@ -14,6 +14,7 @@ import ActiveRentals from "./users/ActiveRentals";
 import AllProducts from "./users/AllProducts";
 import Contact from "./pages/Contact";
 import Docs from "./pages/Docs";
+import ViewTools from "./users/ViewTools";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,7 @@ function App() {
 
           <Route path="/user/activeRentals" element={<ActiveRentals />} />
           <Route path="/user/allProducts" element={<AllProducts />} />
+          <Route path="/product/:productId" element={<ViewTools />} />
 
           <Route path="/provider/dashboard" element={<ProviderDashboard />} />
 

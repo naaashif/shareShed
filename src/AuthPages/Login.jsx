@@ -37,8 +37,8 @@ function Login() {
         role: formData.email.includes("provider")
           ? "provider"
           : formData.email.includes("admin")
-          ? "admin"
-          : "user"
+            ? "admin"
+            : "user"
       };
 
       // Save role (temporary)
@@ -103,7 +103,7 @@ function Login() {
             </div>
 
             <div className="text-right mb-4">
-              <Link to={'/user/home'}  className="text-xs underline">
+              <Link to={'/user/home'} className="text-xs underline">
                 Forgot Password?
               </Link>
             </div>
@@ -112,9 +112,8 @@ function Login() {
             <button
               onClick={handleLogin}
               disabled={loading}
-              className={`w-full p-2 rounded ${
-                loading ? "bg-gray-500" : "bg-green-700"
-              }`}
+              className={`w-full p-2 rounded ${loading ? "bg-gray-500" : "bg-green-700"
+                }`}
             >
               {loading ? "Logging in..." : "Login"}
             </button>
@@ -128,19 +127,19 @@ function Login() {
           </div>
         </div>
       </div>
-            <ToastContainer
-position="top-center"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick={false}
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-transition={Bounce}
-/>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 }

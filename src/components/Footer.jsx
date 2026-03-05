@@ -63,7 +63,7 @@ function Footer() {
               Subscribe
             </button>
           </form>
-          
+
           {/* Social Media Links */}
           <div className="mt-5 flex gap-4 text-3xl">
             <a 
@@ -107,7 +107,7 @@ function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="flex justify-between md:flex-row flex-col space-y-4 md:space-y-0 items-center px-5 pt-5 border-t border-gray-600">
+      <div className="flex justify-between md:flex-row flex-col space-y-4 md:space-y-0 items-center px-5 pt-1 border-t border-gray-600">
         <div>
           <p className="text-sm">&copy; 2026 ShareShed Inc. All rights reserved.</p>
         </div>
@@ -120,8 +120,7 @@ function Footer() {
           </Link>
           <Link 
             to="/developers" className="hover:text-white transition-colors"
-          >
-            Developers
+          >Developers
           </Link>
         </div>
       </div>
