@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FaUser, FaTools } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { registerAPI } from "../services/allAPI";
 
 function Register() {
   const navigate = useNavigate();
@@ -22,26 +24,54 @@ function Register() {
     }));
   };
 
-  const handleRegister = () => {
-    if (!formData.role) {
-      alert("Please select a role");
+  const handleRegister = async () => {
+    const { username, email, password, confirmPassword, role, company } = formData;
+
+    if (!username || !email || !password || !confirmPassword) {
+      toast.warning("Please fill the form completely");
       return;
     }
 
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
+    if (role === "provider" && !company) {
+      toast.warning("Please enter your Shop Name");
       return;
     }
 
-    // TEMP: simulate successful register
-    // Later → API call here
-    console.log(formData);
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-    // Redirect based on role
-    if (formData.role === "user") {
-      navigate("/user/home");
-    } else {
-      navigate("/provider/dashboard");
+    const payload = {
+      username,
+      email,
+      password,
+      role,
+      providerDetails: role === "provider" ? { shopName: company, verificationStatus: "pending" } : undefined
+    };
+
+    try {
+      const result = await registerAPI(payload);
+      if (result.status === 200) {
+        toast.success("Registration Successful!");
+        const newUser = result.data;
+        
+        localStorage.setItem("role", newUser.role);
+        localStorage.setItem("currentUser", JSON.stringify(newUser));
+
+        setTimeout(() => {
+          if (newUser.role === "provider") {
+            navigate("/provider/dashboard");
+          } else {
+            navigate("/user/home");
+          }
+        }, 1500);
+      } else {
+        toast.error(result.response?.data || "Registration failed!");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred during registration");
     }
   };
 
@@ -159,6 +189,19 @@ function Register() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 }

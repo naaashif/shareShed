@@ -49,3 +49,29 @@ export const viewBookAPI = async (reqHeader,id)=>{
 export const editUserAPI = async (id,reqBody,reqHeader)=>{
    return await commonAPI("PUT",`${serverURL}/user/${id}/edit`,reqBody,reqHeader)
 }
+
+// Tool APIs
+export const addToolAPI = async (reqBody) => {
+   return await commonAPI("POST", `${serverURL}/tools`, reqBody)
+}
+
+export const getProviderToolsAPI = async (providerId) => {
+   return await commonAPI("GET", `${serverURL}/provider/tools/${providerId}`, {})
+}
+
+export const updateToolAPI = async (id, reqBody) => {
+   return await commonAPI("PUT", `${serverURL}/tools/${id}`, reqBody)
+}
+
+export const deleteToolAPI = async (id) => {
+   return await commonAPI("DELETE", `${serverURL}/tools/${id}`, {})
+}
+
+// Booking APIs
+export const addBookingAPI = async (reqBody) => {
+   return await commonAPI("POST", `${serverURL}/bookings`, reqBody)
+}
+
+export const getProviderBookingsAPI = async (providerId) => {
+   return await commonAPI("GET", `${serverURL}/provider/bookings/${providerId}`, {})
+}

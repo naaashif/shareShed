@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { loginAPI } from "../services/allAPI";
 
 function Login() {
   const navigate = useNavigate();
@@ -22,39 +23,43 @@ function Login() {
     }));
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!formData.email || !formData.password) {
-      toast.warning('Fill the Form Completely')
+      toast.warning('Fill the Form Completely');
       return;
     }
 
     setLoading(true);
 
-    // TEMP MOCK LOGIN (replace with API later)
-    setTimeout(() => {
-      /*  TEMP ROLE LOGIC-Later this comes from backend response */
-      const mockUser = {
-        role: formData.email.includes("provider")
-          ? "provider"
-          : formData.email.includes("admin")
-            ? "admin"
-            : "user"
-      };
+    try {
+      const result = await loginAPI(formData);
+      if (result.status === 200) {
+        toast.success("Login Successful!");
+        const loggedUser = result.data;
+        
+        localStorage.setItem("role", loggedUser.role);
+        localStorage.setItem("currentUser", JSON.stringify(loggedUser));
 
-      // Save role (temporary)
-      localStorage.setItem("role", mockUser.role);
-
-      // Redirect based on role
-      if (mockUser.role === "admin") {
-        navigate("/admin/dashboard");
-      } else if (mockUser.role === "provider") {
-        navigate("/provider/dashboard");
+        setTimeout(() => {
+          if (loggedUser.role === "admin") {
+            navigate("/admin/dashboard");
+          } else if (loggedUser.role === "provider") {
+            navigate("/provider/dashboard");
+          } else {
+            navigate("/user/home");
+          }
+          setLoading(false);
+        }, 1000);
       } else {
-        navigate("/user/home");
+        const errorMsg = result.response?.data || "Incorrect email or password";
+        toast.error(errorMsg);
+        setLoading(false);
       }
-
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred during login");
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
